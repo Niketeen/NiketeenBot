@@ -6,6 +6,7 @@ import currencies
 import keyboards
 import commands
 import time
+import loggingRequests
 from io import BytesIO
 from PIL import Image
 
@@ -17,12 +18,14 @@ NiketeenBot = telebot.TeleBot(config.TelegramBotToken)
 
 @NiketeenBot.message_handler(commands=[commands.start])
 def welcome(message):
+    loggingRequests.printToDisplay(message, 'Welcoming')
     NiketeenBot.send_message(message.chat.id, "Добро пожаловать в гости к тестовому боту Niketeen!", reply_markup=keyboards.mainMenu())
     metrics.track(message, 'Welcoming')
     return
 
 @NiketeenBot.message_handler(content_types=["text"])
 def answer(message):
+    loggingRequests.printToDisplay(message, 'Command')
     if   message.text == commands.showTime:
         NiketeenBot.send_message(message.chat.id, "Текущее челябинское время :" + time.strftime('%X %x') + "!")
         metrics.track(message, 'timeRequest')
