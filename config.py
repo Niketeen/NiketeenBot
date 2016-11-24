@@ -11,5 +11,5 @@ TelegramBotToken = '*********:**************_*-*******_**********'
 # Name    **********
 # ID      ******
 # API Key ********-****-****-****-************
-# NOTE: Use your Botan API key recived in Yandex.Metrics
+# NOTE: Use your Botan API key received in Yandex.Metrics
 YandexMetricsAPIKey = '********-****-****-****-************'
